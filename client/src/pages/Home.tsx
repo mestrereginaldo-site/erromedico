@@ -100,7 +100,7 @@ export default function Home() {
     setIsExitPopupOpen(false);
   };
   
-  // Função para lidar com o envio do formulário de e-mail
+  // NOVA FUNÇÃO: Envio por WhatsApp para a análise completa
   const handleSubmitEmail = async (formData: {
     userName: string;
     userEmail: string;
@@ -108,75 +108,52 @@ export default function Home() {
     receiveWhatsapp: boolean;
   }) => {
     try {
-      // Verificar se temos um resultado de cálculo
       if (!calculationResult) {
         alert("Erro: Nenhum cálculo disponível. Por favor, faça um cálculo primeiro.");
         return;
       }
 
-      // Preparar os dados para enviar ao servidor
-      const dataToSend = {
-        ...formData,
-        calculationResult,
-        errorType: sessionStorage.getItem("errorType") || "not specified",
-        severity: sessionStorage.getItem("severity") || "not specified",
-        expenses: parseFloat(sessionStorage.getItem("expenses") || "0"),
-        income: parseFloat(sessionStorage.getItem("income") || "0"),
-        age: parseFloat(sessionStorage.getItem("age") || "0"),
-      };
+      // Criar mensagem para WhatsApp
+      const message = `Olá! Gostaria de receber minha análise completa:\n\n*Nome:* ${formData.userName}\n*Email:* ${formData.userEmail}\n*Telefone:* ${formData.userPhone}\n*Receber WhatsApp:* ${formData.receiveWhatsapp ? 'Sim' : 'Não'}\n\n*Resultado do Cálculo:*\nDano Moral: R$ ${calculationResult.moralDamage.toFixed(2)}\nDano Material: R$ ${calculationResult.materialDamage.toFixed(2)}\nPensão: R$ ${calculationResult.pension.toFixed(2)}\n*Total: R$ ${calculationResult.total.toFixed(2)}*`;
 
-      // Enviar os dados para o servidor
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSend),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Erro no servidor: ${response.status}`);
-      }
-
-      // Incrementar contador de leads no localStorage
-      const currentLeads = parseInt(localStorage.getItem("totalLeads") || "0");
-      localStorage.setItem("totalLeads", (currentLeads + 1).toString());
+      // Abrir WhatsApp
+      const whatsappUrl = `https://wa.me/5571981579418?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
       
-      // Fechar o modal de e-mail e mostrar o modal de sucesso
+      // Fechar o modal e mostrar sucesso
       setIsEmailModalOpen(false);
       setIsSuccessModalOpen(true);
+      
     } catch (error) {
-      console.error("Error submitting email form:", error);
-      alert("Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.");
+      console.error("Error:", error);
+      alert("Redirecionando para WhatsApp...");
+      
+      // Fallback - abrir WhatsApp mesmo com erro
+      const whatsappUrl = `https://wa.me/5571981579418?text=Olá! Gostaria de receber minha análise de indenização.`;
+      window.open(whatsappUrl, '_blank');
     }
   };
   
-  // Função para lidar com o envio do formulário do e-book (popup de saída)
+  // NOVA FUNÇÃO: Envio por WhatsApp para o e-book
   const handleSubmitEbook = async (email: string) => {
     try {
-      // Enviar os dados do e-book para o servidor
-      const response = await fetch("/api/ebook-subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Erro no servidor: ${response.status}`);
-      }
-
-      // Incrementar contador de leads de e-book no localStorage
-      const currentEbookLeads = parseInt(localStorage.getItem("totalEbookLeads") || "0");
-      localStorage.setItem("totalEbookLeads", (currentEbookLeads + 1).toString());
+      // Criar mensagem para WhatsApp do e-book
+      const message = `Olá! Gostaria de baixar o e-book grátis sobre Indenização por Erro Médico.\n\n*Email:* ${email}`;
       
-      // Fechar o popup de saída e mostrar o modal de sucesso
+      // Abrir WhatsApp
+      const whatsappUrl = `https://wa.me/5571981579418?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      
+      // Fechar o popup e mostrar sucesso
       setIsExitPopupOpen(false);
       setIsSuccessModalOpen(true);
+      
     } catch (error) {
-      console.error("Error submitting ebook form:", error);
-      alert("Ocorreu um erro ao solicitar o e-book. Por favor, tente novamente.");
+      console.error("Error:", error);
+      
+      // Fallback
+      const whatsappUrl = `https://wa.me/5571981579418?text=Olá! Gostaria de baixar o e-book grátis.`;
+      window.open(whatsappUrl, '_blank');
     }
   };
 
