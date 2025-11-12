@@ -181,7 +181,7 @@ export default function Home() {
               className="menu-link"
             >
               <i className="fas fa-book"></i>
-              E&#8209;book
+              E&#8209;book Premium
             </a>
             <a href="/casos-reais" className="menu-link">
               <i className="fas fa-balance-scale"></i>
