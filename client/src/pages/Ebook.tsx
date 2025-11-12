@@ -1,8 +1,143 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Ebook() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [accessCode, setAccessCode] = useState('');
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Verificar se já está autenticado na sessão
+    const authStatus = sessionStorage.getItem('ebookPremiumAuth');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Códigos de acesso válidos
+    const validCodes = [
+      'MEDINDENIZ2025',
+      'ERROMEDICO119',
+      'DIREITO297',
+      'INDENIZACAO2025'
+    ];
+
+    if (validCodes.includes(accessCode.toUpperCase())) {
+      sessionStorage.setItem('ebookPremiumAuth', 'true');
+      setIsAuthenticated(true);
+      setError('');
+    } else {
+      setError('Código de acesso inválido. Verifique e tente novamente.');
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('ebookPremiumAuth');
+    setIsAuthenticated(false);
+    setAccessCode('');
+  };
+
+  // SE NÃO ESTIVER AUTENTICADO, MOSTRAR TELA DE LOGIN
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-indigo-900 flex items-center justify-center py-10 px-4">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8">
+          <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i className="fas fa-lock text-white text-2xl"></i>
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900">Acesso ao E-book Premium</h1>
+            <p className="text-gray-600 mt-2">
+              Digite o código de acesso fornecido após a compra
+            </p>
+          </div>
+
+          <form onSubmit={handleLogin}>
+            <div className="mb-6">
+              <label htmlFor="accessCode" className="block text-sm font-medium text-gray-700 mb-2">
+                Código de Acesso
+              </label>
+              <input
+                type="text"
+                id="accessCode"
+                value={accessCode}
+                onChange={(e) => setAccessCode(e.target.value)}
+                placeholder="Digite o código de acesso"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                required
+              />
+            </div>
+
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-600 text-sm flex items-center">
+                  <i className="fas fa-exclamation-circle mr-2"></i>
+                  {error}
+                </p>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-800 transition-all duration-300 flex items-center justify-center"
+            >
+              <i className="fas fa-unlock-alt mr-2"></i>
+              Acessar E-book Premium
+            </button>
+          </form>
+
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-sm text-blue-700 flex items-start">
+              <i className="fas fa-info-circle mr-2 mt-0.5"></i>
+              <span>
+                <strong>Problemas com acesso?</strong><br/>
+                Entre em contato via WhatsApp: (71) 98157-9418
+              </span>
+            </p>
+          </div>
+
+          <div className="mt-4 text-center">
+            <a 
+              href="/ebook-premium"
+              className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            >
+              ← Voltar para a página de vendas
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // SE ESTIVER AUTENTICADO, MOSTRAR CONTEÚDO DO E-BOOK
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-10 px-4">
+      {/* Header do E-book com botão de logout */}
+      <div className="max-w-4xl mx-auto mb-6">
+        <div className="flex justify-between items-center bg-white rounded-xl shadow-lg p-4">
+          <div className="flex items-center gap-4">
+            <a href="/" className="no-underline">
+              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">MedIndeniz</h1>
+            </a>
+            <div className="slogan-box">
+              <h1 className="text-lg">Da Falha Médica à Reparação</h1>
+              <p className="slogan text-sm">Seu Direito Calculado com Precisão</p>
+            </div>
+          </div>
+          
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors flex items-center"
+          >
+            <i className="fas fa-sign-out-alt mr-2"></i>
+            Sair
+          </button>
+        </div>
+      </div>
+
+      {/* Conteúdo do E-book (mantido original) */}
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-8 py-6 text-white">
           <div className="flex items-center gap-4 mb-3">
