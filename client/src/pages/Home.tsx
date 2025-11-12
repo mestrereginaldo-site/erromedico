@@ -1,4 +1,4 @@
-[file name]: Home (1).tsx
+[file name]: Home.tsx
 [file content begin]
 import Calculator from "@/components/Calculator";
 import Footer from "@/components/Footer";
@@ -180,7 +180,7 @@ export default function Home() {
             </a>
             <a 
               href="/ebook-premium"
-              className="menu-link"
+              className="menu-link no-wrap"
             >
               <i className="fas fa-book"></i>
               E-book Premium
