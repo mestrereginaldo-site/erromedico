@@ -1,0 +1,93 @@
+Prompt 1: Criação do Site Básico
+Instruções para a IA:
+
+markdown
+Copy
+"Crie um site em HTML/CSS/JS + Node.js que funcione como calculadora de indenização por erro médico. Requisitos:
+
+1. Página única com:
+   - Título grande: 'Descubra Quanto Você Deve Receber por Erro Médico em 1 Minuto'
+   - Campo de seleção: 'Tipo de erro' (Cirurgia, Diagnóstico, Tratamento)
+   - Campo numérico: 'Despesas Médicas (R$)'
+   - Campo de seleção: 'Gravidade' (Leve, Moderado, Grave)
+   - Botão 'Calcular Agora'
+
+2. CSS moderno com gradiente de fundo (#0f0c29 → #302b63) e fonte 'Poppins'
+
+3. Cálculo JavaScript baseado nestes valores:
+   - Dano Moral: Leve=R$15.000, Moderado=R$80.000, Grave=R$220.000
+   - Dano Material: Despesas Médicas + 30%
+   - Total = Dano Moral + Dano Material
+
+4. Exibir resultado com animação: 'Sua indenização estimada: R$ [VALOR]'
+Prompt 2: Integração de Captura de E-mails
+Instruções para a IA:
+
+markdown
+Copy
+"Adicione ao site:
+
+1. Modal que aparece após o cálculo exigindo:
+   - Campo de e-mail
+   - Botão 'Enviar Resultado para Meu E-mail'
+
+2. Integração com API do Mailchimp usando Fetch:
+   - Salvar no grupo 'Leads Erro Médico'
+   - Mensagem de sucesso: 'Resultado enviado! Verifique sua caixa postal.'
+
+3. Código de monetização:
+   - Após enviar e-mail, exibir banner: 'Quer ação judicial SEM riscos? Fale com especialista (97% de sucesso) → WhatsApp [NÚMERO]'"
+Prompt 3: Hospedagem Automática no Replit
+Instruções para a IA:
+
+markdown
+Copy
+"Configure para deploy automático:
+
+1. Arquivo server.js usando Express.js
+2. Rota GET para página principal
+3. Rota POST '/calcular' que processa os dados
+4. Configurar .replit com comando 'run = "npm start"'
+5. Ativar 'Always On' na aba Deploy"
+Prompt 4: Cálculos Jurídicos Complexos (Opcional)
+Para maior precisão:
+
+markdown
+Copy
+"Aprimore o cálculo JavaScript incluindo:
+
+1. Fórmula de atualização monetária pelo IPC-E:
+   total *= 1 + (0.02 * meses_decorridos)
+
+2. Tabela de probabilidade de sucesso:
+   - Leve: 40% de chance → total *= 0.4
+   - Moderado: 65% → total *= 0.65
+   - Grave: 85% → total *= 0.85
+
+3. Cálculo de pensão vitalícia se selecionar 'Óbito':
+   total += (renda_mensal * 12 * (75 - idade))"
+Passo Final: Execução no Replit
+Abra um novo projeto Node.js
+
+Cole o código gerado pela IA
+
+No terminal, digite:
+
+bash
+Copy
+npm install express body-parser @mailchimp/mailchimp_marketing
+Clique em 'Run'
+
+Link de Exemplo Funcional:
+Seu site estará online em:
+https://[NOME_DO_PROJETO].repl.co
+
+Dica de Monetização Imediata:
+No primeiro banner, use este CTA:
+
+html
+Copy
+<a href="https://wa.me/5511999999999?text=Quero%20minha%20indenização" 
+   class="whatsapp-button">
+   FALAR COM ESPECIALISTA AGORA → 
+</a>

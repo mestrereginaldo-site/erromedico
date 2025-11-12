@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Meta tags existentes... -->
+  
+  <style>
+    /* CSS do Logo & Slogan (Cole no <head>) */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .logo {
+      width: 220px;
+      height: auto;
+      filter: drop-shadow(0 2px 4px rgba(43, 108, 176, 0.1));
+    }
+
+    .slogan-emocional {
+      background: linear-gradient(45deg, #2B6CB0, #1A365D);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      margin: 0.8rem 0;
+      letter-spacing: -0.3px;
+    }
+
+    .slogan-credibilidade {
+      color: #4A5568;
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border-top: 2px solid #E2E8F0;
+      padding-top: 1rem;
+    }
+
+    /* Botão WhatsApp Fixo */
+    .whatsapp-fixo {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white !important;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+      z-index: 1000;
+      transition: all 0.3s;
+    }
+
+    .whatsapp-fixo:hover {
+      transform: scale(1.1) rotate(10deg);
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 180px;
+      }
+      
+      .slogan-emocional {
+        font-size: 1.1rem;
+      }
+      
+      .slogan-credibilidade {
+        font-size: 0.85rem;
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header-brand">
+    <img src="/public/logo.svg" 
+         alt="MedIndeniz - Justiça em Números" 
+         class="logo">
+    
+    <h1 class="slogan-emocional">Da Negligência à Justiça: Seu Direito em Números</h1>
+    
+    <p class="slogan-credibilidade">
+      Especialistas em Direito Médico com + de 1.200 casos resolvidos | Atendimento Nacional
+    </p>
+  </header>
+
+  <!-- Conteúdo Existente da Calculadora... -->
+
+  <!-- Botão WhatsApp -->
+  <a href="https://wa.me/5511999999999" 
+     class="whatsapp-fixo"
+     target="_blank"
+     aria-label="Fale conosco via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>

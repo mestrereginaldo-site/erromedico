@@ -1,0 +1,138 @@
+/* Estilos Gerais */
+.depoimentos-container {
+  background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+  padding: 4rem 1rem;
+  border-radius: 30px;
+  margin: 3rem 0;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+}
+
+.titulo-depoimentos {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #2b6cb0;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.titulo-depoimentos::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #e2e8f0;
+  margin: 1rem auto;
+}
+
+/* Grid de Depoimentos */
+.grid-depoimentos {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Cards Individuais */
+.card-depoimento {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+}
+
+.card-depoimento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(43, 108, 176, 0.1);
+}
+
+/* Cabeçalho com Foto */
+.cabecalho-depoimento {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.foto-depoente {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2b6cb0;
+  box-shadow: 0 4px 6px -1px rgba(43, 108, 176, 0.1);
+}
+
+.info-depoente h3 {
+  margin: 0;
+  color: #1a365d;
+  font-size: 1.1rem;
+}
+
+.avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+}
+
+.estrelas {
+  color: #f6e05e;
+  font-size: 1.1rem;
+}
+
+.data {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.local {
+  color: #2b6cb0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Texto do Depoimento */
+.texto-depoimento {
+  margin: 1rem 0;
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 3px solid #cbd5e0;
+  font-style: italic;
+}
+
+/* Botão CTA */
+.botao-calcular {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #2b6cb0;
+  color: white !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.botao-calcular:hover {
+  background: #1e4e8c;
+  transform: scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .grid-depoimentos {
+    grid-template-columns: 1fr;
+  }
+  
+  .titulo-depoimentos {
+    font-size: 1.8rem;
+  }
+}
