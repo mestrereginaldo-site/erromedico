@@ -1,0 +1,16 @@
+/* Ajustes de alinhamento para listas com ícones */
+.min-w-5 {
+  min-width: 1.25rem; /* 20px */
+  text-align: center;
+}
+
+/* Garantir que os spans tenham mesma largura e alinhamento */
+.text-left {
+  text-align: left;
+  display: block;
+}
+
+/* Ajustes específicos para alinhamento dos itens da lista */
+.flex.items-start {
+  align-items: flex-start;
+}
