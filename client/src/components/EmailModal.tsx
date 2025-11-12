@@ -47,6 +47,29 @@ export default function EmailModal({ isOpen, onClose, onSubmit }: EmailModalProp
     // Don't reset form here since the component will unmount
   };
 
+  const handleWhatsAppDirect = () => {
+    // Validação básica
+    if (!userName.trim()) {
+      alert('Por favor, digite seu nome');
+      return;
+    }
+
+    if (!userPhone) {
+      alert('Por favor, digite seu telefone');
+      return;
+    }
+
+    // Criar mensagem para WhatsApp
+    const message = `Olá! Gostaria de receber minha análise completa de indenização:\n\n*Nome:* ${userName}\n*Telefone:* ${userPhone}${userEmail ? `\n*Email:* ${userEmail}` : ''}\n*Receber materiais:* ${receiveWhatsapp ? 'Sim' : 'Não'}`;
+
+    // Abrir WhatsApp
+    const whatsappUrl = `https://wa.me/5571981579418?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Fechar modal
+    onClose();
+  };
+
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -95,7 +118,7 @@ export default function EmailModal({ isOpen, onClose, onSubmit }: EmailModalProp
             
             <div className="space-y-2">
               <label htmlFor="userEmail" className="block text-sm font-medium text-indigo-200">
-                Seu Email
+                Seu Email (Opcional)
               </label>
               <input 
                 type="email"
@@ -105,7 +128,6 @@ export default function EmailModal({ isOpen, onClose, onSubmit }: EmailModalProp
                 onChange={(e) => setUserEmail(e.target.value)}
                 placeholder="exemplo@email.com"
                 className="input-field w-full p-3 bg-white bg-opacity-10 border border-indigo-300 border-opacity-30 rounded-lg text-white transition-all focus:outline-none focus:border-indigo-400"
-                required
               />
             </div>
             
@@ -138,13 +160,33 @@ export default function EmailModal({ isOpen, onClose, onSubmit }: EmailModalProp
               </label>
             </div>
             
+            {/* Botão WhatsApp (PRINCIPAL) */}
+            <div className="pt-2">
+              <button 
+                type="button"
+                onClick={handleWhatsAppDirect}
+                className="w-full py-3 px-6 bg-green-600 hover:bg-green-500 rounded-lg font-medium text-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl flex items-center justify-center mb-3"
+              >
+                <i className="fab fa-whatsapp mr-2"></i>
+                Enviar pelo WhatsApp (Recomendado)
+              </button>
+            </div>
+
+            {/* Ou separador */}
+            <div className="flex items-center my-2">
+              <div className="flex-1 border-t border-gray-400 border-opacity-30"></div>
+              <span className="px-3 text-gray-400 text-sm">ou</span>
+              <div className="flex-1 border-t border-gray-400 border-opacity-30"></div>
+            </div>
+
+            {/* Botão Email (alternativo) */}
             <div className="pt-2">
               <button 
                 type="submit"
-                className="w-full py-3 px-6 bg-green-600 hover:bg-green-500 rounded-lg font-medium text-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-500 rounded-lg font-medium text-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl flex items-center justify-center"
               >
-                <i className="fas fa-paper-plane mr-2"></i>
-                Enviar Relatório para Meu Email
+                <i className="fas fa-envelope mr-2"></i>
+                Enviar Relatório por Email
               </button>
             </div>
             
