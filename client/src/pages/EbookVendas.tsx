@@ -154,7 +154,7 @@ export default function EbookVendas() {
             <ul className="space-y-3 mb-8">
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
-                <span>7 capítulos completos e detalhados</span>
+                <span>8 capítulos completos e detalhados</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
