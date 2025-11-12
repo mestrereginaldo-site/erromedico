@@ -9,21 +9,11 @@ type ExitPopupProps = {
 export default function ExitPopup({ isOpen, onClose, onSubmit }: ExitPopupProps) {
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const [animate, setAnimate] = useState(false);
   
   useEffect(() => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setIsValid(emailRegex.test(email));
   }, [email]);
-  
-  useEffect(() => {
-    if (isOpen) {
-      // Adiciona uma pequena animação de entrada
-      setAnimate(false);
-      const timer = setTimeout(() => setAnimate(true), 50);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen]);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,69 +23,86 @@ export default function ExitPopup({ isOpen, onClose, onSubmit }: ExitPopupProps)
     }
   };
   
+  const handleWhatsApp = () => {
+    const message = "Olá! Gostaria de baixar o e-book grátis sobre Indenização por Erro Médico.";
+    const whatsappUrl = `https://wa.me/5571981579418?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    onClose();
+  };
+  
   if (!isOpen) return null;
   
   return (
-    <div className={`exit-popup-overlay ${animate ? 'active' : ''}`}>
-      <div className={`exit-popup-content ${animate ? 'active' : ''}`}>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-lg max-w-md w-full p-6 relative">
         <button 
-          className="exit-popup-close" 
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
           onClick={onClose}
-          aria-label="Fechar"
         >
-          &times;
+          ×
         </button>
         
-        <div className="exit-popup-image">
-          <i className="fas fa-book-open"></i>
+        <div className="text-center mb-4">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i className="fas fa-book text-green-600 text-2xl"></i>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            E-book Grátis!
+          </h3>
+          <p className="text-gray-600 mb-4">
+            Baixe agora o <strong>"Indenização por Erro Médico: Guia Completo"</strong>
+          </p>
         </div>
-        
-        <h3 className="exit-popup-title">
-          Não perca esta oportunidade!
-        </h3>
-        
-        <p className="exit-popup-description">
-          Baixe agora o e-book <strong>"Indenização por Erro Médico: Guia Completo"</strong> e descubra como garantir seus direitos
-        </p>
-        
-        <form onSubmit={handleSubmit} className="exit-popup-form">
+
+        {/* Botão WhatsApp (PRINCIPAL) */}
+        <button
+          onClick={handleWhatsApp}
+          className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-bold mb-3 hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+        >
+          <i className="fab fa-whatsapp"></i>
+          Receber E-book pelo WhatsApp
+        </button>
+
+        {/* Ou separador */}
+        <div className="flex items-center my-4">
+          <div className="flex-1 border-t border-gray-300"></div>
+          <span className="px-3 text-gray-500 text-sm">ou</span>
+          <div className="flex-1 border-t border-gray-300"></div>
+        </div>
+
+        {/* Formulário de email (alternativo) */}
+        <form onSubmit={handleSubmit} className="mb-3">
           <input
             type="email"
             placeholder="Seu melhor e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="exit-popup-input"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-2"
             required
           />
-          
           <button 
             type="submit" 
-            className="exit-popup-button"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-bold hover:bg-blue-700 transition-colors disabled:opacity-50"
             disabled={!isValid}
           >
-            <i className="fas fa-download mr-2"></i>
-            Baixar E-book Grátis
+            Receber por E-mail
           </button>
         </form>
-        
-        <div className="exit-popup-features">
-          <div className="feature-item">
-            <i className="fas fa-check-circle text-green-500 mr-2"></i>
-            Exemplos de cálculo de indenizações
+
+        <div className="text-xs text-gray-500 text-center">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <i className="fas fa-check text-green-500"></i>
+            <span>Exemplos de cálculo de indenizações</span>
           </div>
-          <div className="feature-item">
-            <i className="fas fa-check-circle text-green-500 mr-2"></i>
-            Casos reais de sucesso
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <i className="fas fa-check text-green-500"></i>
+            <span>Casos reais de sucesso</span>
           </div>
-          <div className="feature-item">
-            <i className="fas fa-check-circle text-green-500 mr-2"></i>
-            Guia passo a passo para seu processo
+          <div className="flex items-center justify-center gap-2">
+            <i className="fas fa-check text-green-500"></i>
+            <span>Guia passo a passo</span>
           </div>
         </div>
-        
-        <p className="exit-popup-privacy">
-          Seus dados estão seguros. Não enviamos spam.
-        </p>
       </div>
     </div>
   );
