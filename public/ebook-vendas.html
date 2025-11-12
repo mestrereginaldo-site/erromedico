@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book Premium - Indenização por Erro Médico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1E40AF;
+            --secondary: #3B82F6;
+            --accent: #FFD700;
+            --dark: #1A365D;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1A365D 0%, #0F172A 100%);
+            min-height: 100vh;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            padding: 140px 20px 80px;
+            text-align: center;
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80') center/cover no-repeat;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .highlight {
+            color: var(--accent);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
+        }
+        
+        .cta-button i {
+            margin-right: 10px;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background: linear-gradient(0deg, rgba(15, 23, 42, 0.95), rgba(26, 54, 93, 0.95));
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .feature-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .pricing {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(15, 23, 42, 0.8));
+        }
+        
+        .pricing-box {
+            max-width: 450px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--accent);
+            color: var(--dark);
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transform: rotate(12deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pricing-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .pricing-subtitle {
+            font-size: 18px;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+        
+        .pricing-price {
+            margin-bottom: 30px;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .current-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .pricing-benefits {
+            list-style-type: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .pricing-benefits li {
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+        }
+        
+        .pricing-benefits i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        .guarantee {
+            padding: 60px 0;
+            background: linear-gradient(0deg, rgba(15, 23, 42, 0.9), rgba(26, 54, 93, 0.9));
+        }
+        
+        .guarantee-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .guarantee-icon {
+            flex-shrink: 0;
+            font-size: 64px;
+            color: var(--accent);
+        }
+        
+        .guarantee-content h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .guarantee-content p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(26, 54, 93, 0.9));
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-content {
+            position: relative;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            font-size: 60px;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: rgba(255, 215, 0, 0.2);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(26, 54, 93, 0.95), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        footer {
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .guarantee-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="/logo-medindeniz.svg" alt="MedIndeniz Logo" onerror="this.onerror=null; this.src='/logo.png';">
+                <span class="logo-text">MedIndeniz</span>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="/">Início</a>
+                <a href="#features">Benefícios</a>
+                <a href="#pricing">Investimento</a>
+                <a href="#testimonials">Depoimentos</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>E-book Premium: <span class="highlight">Indenização por Erro Médico</span></h1>
+            <p>Descubra como calcular e obter o valor justo de indenização em casos de erro médico com nosso guia completo e exclusivo desenvolvido por especialistas jurídicos.</p>
+            <a href="https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" class="cta-button"><i class="fab fa-whatsapp"></i>Adquirir Agora</a>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">O Que Você Vai Aprender</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-search"></i></div>
+                    <h3 class="feature-title">Identificação do Erro Médico</h3>
+                    <p class="feature-description">Aprenda a reconhecer e documentar os diferentes tipos de erro médico: negligência, imprudência e imperícia.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                    <h3 class="feature-title">Cálculo de Indenizações</h3>
+                    <p class="feature-description">Fórmulas e parâmetros atualizados utilizados pelos tribunais para determinar valores de compensação.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="feature-title">Modelos de Petições</h3>
+                    <p class="feature-description">Exemplos práticos e estruturas de documentos essenciais para fundamentar sua ação judicial.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3 class="feature-title">Jurisprudência Atualizada</h3>
+                    <p class="feature-description">Análise de casos recentes e decisões dos tribunais que estabelecem precedentes valiosos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 class="feature-title">Estratégias de Acordo</h3>
+                    <p class="feature-description">Técnicas eficazes para negociação e obtenção de acordos mais vantajosos sem necessidade de julgamento.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="feature-title">Atualização Monetária</h3>
+                    <p class="feature-description">Como aplicar corretamente o IPC-E e outros índices para manter o valor real da indenização.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Investimento</h2>
+            
+            <div class="pricing-box">
+                <div class="pricing-badge">60% OFF</div>
+                <h3 class="pricing-title">E-book Premium</h3>
+                <p class="pricing-subtitle">Guia Completo de Indenização por Erro Médico</p>
+                
+                <div class="pricing-price">
+                    <span class="old-price">R$ 297,00</span>
+                    <span class="current-price">R$ 119,90</span>
+                </div>
+                
+                <ul class="pricing-benefits">
+                    <li><i class="fas fa-check-circle"></i> 7 capítulos completos e detalhados</li>
+                    <li><i class="fas fa-check-circle"></i> Exemplos reais de processos e valores</li>
+                    <li><i class="fas fa-check-circle"></i> Tabelas de cálculo atualizadas</li>
+                    <li><i class="fas fa-check-circle"></i> Modelos de petição prontos para uso</li>
+                    <li><i class="fas fa-check-circle"></i> Acesso imediato após a compra</li>
+                    <li><i class="fas fa-check-circle"></i> Garantia de 7 dias ou seu dinheiro de volta</li>
+                </ul>
+                
+                <a href="https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" class="cta-button"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-box">
+                <div class="guarantee-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="guarantee-content">
+                    <h3>Garantia de 7 Dias</h3>
+                    <p>Se você não ficar satisfeito com o conteúdo do e-book por qualquer motivo, basta solicitar o reembolso em até 7 dias após a compra e devolveremos 100% do seu investimento, sem perguntas ou complicações. Nossa prioridade é sua satisfação e confiança.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">O Que Nossos Leitores Dizem</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>O guia foi fundamental para que eu entendesse meus direitos após um erro diagnóstico. Com as orientações do e-book, consegui uma indenização de R$ 85.000,00 sem precisar ir a julgamento.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="/mulher_depoimento1.jpeg" alt="Maria Silva">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Maria Silva</h4>
+                            <p>São Paulo, SP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Como advogado, sempre busco materiais de qualidade para aprimorar minha atuação. Este e-book superou todas as expectativas com conteúdo prático e embasado em jurisprudência atual.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="/homem_depoimento2.jpeg" alt="Carlos Oliveira">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Carlos Oliveira</h4>
+                            <p>Advogado, Rio de Janeiro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Após um erro cirúrgico, estava perdida sobre como proceder. O e-book me guiou passo a passo, desde a documentação necessária até a estratégia de negociação que resultou em acordo vantajoso.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="/mulher_depoimento3.jpeg" alt="Ana Beatriz">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ana Beatriz</h4>
+                            <p>Belo Horizonte, MG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Pronto para Garantir seus Direitos?</h2>
+            <p class="cta-description">Adquira agora o E-book Premium e tenha acesso a todas as ferramentas e conhecimentos para obter a indenização que você merece.</p>
+            <a href="https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" class="cta-button"><i class="fab fa-whatsapp"></i> Comprar E-book Premium</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <img src="/logo-medindeniz.svg" alt="MedIndeniz Logo" width="150" onerror="this.onerror=null; this.src='/logo.png';">
+            <p>&copy; 2025 MedIndeniz - Todos os direitos reservados</p>
+            <p>Este material tem caráter informativo e não substitui a consulta a um advogado especializado.</p>
+            
+            <div class="footer-links">
+                <a href="/">Início</a>
+                <a href="#features">Benefícios</a>
+                <a href="#pricing">Investimento</a>
+                <a href="#testimonials">Depoimentos</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

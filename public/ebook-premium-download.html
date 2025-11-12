@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book Premium: Indenização por Erro Médico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #2563EB;
+            --secondary: #1D4ED8;
+            --dark: #1A365D;
+            --accent: #FFD700;
+            --success: #16a34a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #334155;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--dark), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .balance {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+        
+        .balance-base {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .balance-pillar {
+            position: absolute;
+            bottom: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 15px;
+            background: var(--primary);
+        }
+        
+        .balance-scale {
+            position: absolute;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+        }
+        
+        .balance-scale-left {
+            left: 5px;
+        }
+        
+        .balance-scale-right {
+            right: 5px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .preview {
+            padding: 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .preview-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .preview-icon {
+            width: 60px;
+            height: 60px;
+            background: #f0f9ff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        .preview-title h2 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .preview-title p {
+            color: #64748b;
+            font-size: 15px;
+        }
+        
+        .preview-content {
+            margin-top: 30px;
+        }
+        
+        .preview-screenshot {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .preview-info {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .preview-info h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .preview-info ul {
+            list-style-type: none;
+        }
+        
+        .preview-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .preview-info li i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        .download-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .download-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .download-title h2 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .download-title p {
+            color: #64748b;
+        }
+        
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .download-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-icon {
+            width: 70px;
+            height: 70px;
+            background: #f0f9ff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .download-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .download-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+            margin-top: auto;
+            font-size: 14px;
+        }
+        
+        .footer p {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .preview, .download-section {
+                padding: 30px 20px;
+            }
+            
+            .download-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <div class="balance">
+                    <div class="balance-base"></div>
+                    <div class="balance-pillar"></div>
+                    <div class="balance-scale balance-scale-left"></div>
+                    <div class="balance-scale balance-scale-right"></div>
+                </div>
+            </div>
+            <span class="logo-text">MedIndeniz</span>
+        </div>
+        <h1>E-book Premium: Indenização por Erro Médico</h1>
+        <p>Guia completo para profissionais e vítimas</p>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <section class="preview">
+                <div class="preview-header">
+                    <div class="preview-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="preview-title">
+                        <h2>Sobre o E-book Premium</h2>
+                        <p>Informações detalhadas e estratégias práticas sobre indenização por erro médico</p>
+                    </div>
+                </div>
+                
+                <div class="preview-content">
+                    <p>Este guia completo oferece uma análise aprofundada sobre o processo de indenização por erro médico, abordando desde a identificação do erro até as estratégias de negociação e cálculo das compensações.</p>
+                    
+                    <img src="/ebook-cover.svg" alt="Preview do E-book Premium" class="preview-screenshot">
+                    
+                    <div class="preview-info">
+                        <h3>O que você encontrará neste e-book:</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Como identificar diferentes tipos de erro médico (negligência, imprudência, imperícia)</li>
+                            <li><i class="fas fa-check-circle"></i> Critérios para cálculo de indenizações por danos morais, materiais e estéticos</li>
+                            <li><i class="fas fa-check-circle"></i> Modelos de petições e requisitos legais para ações de indenização</li>
+                            <li><i class="fas fa-check-circle"></i> Estratégias eficazes de negociação para acordos mais vantajosos</li>
+                            <li><i class="fas fa-check-circle"></i> Análise de casos reais de sucesso e jurisprudência atualizada</li>
+                            <li><i class="fas fa-check-circle"></i> Aplicação do IPC-E para atualização monetária dos valores</li>
+                            <li><i class="fas fa-check-circle"></i> Orientações específicas para diferentes situações de erro médico</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="download-section">
+                <div class="download-title">
+                    <h2>Download do E-book</h2>
+                    <p>Escolha o formato que melhor atende às suas necessidades</p>
+                </div>
+                
+                <div class="download-options">
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Versão Web</h3>
+                        <p>Acesse o conteúdo completo diretamente no navegador, com layout responsivo e otimizado para leitura online.</p>
+                        <a href="/ebook-premium.html" target="_blank" class="btn">Visualizar Online</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h3>Versão para Impressão</h3>
+                        <p>Formato otimizado para impressão em papel, com layout adequado para encadernação e leitura física.</p>
+                        <a href="javascript:window.print()" class="btn">Imprimir Agora</a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Para Dispositivos Móveis</h3>
+                        <p>Versão adaptada para smartphones e tablets, com conteúdo completo e formatação otimizada para telas menores.</p>
+                        <a href="/ebook-premium.html" download="Indenizacao-Erro-Medico-Guia-Completo.html" class="btn">Baixar para Celular</a>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="margin-bottom: 15px;">Para acesso rápido, escaneie o QR code abaixo com seu celular:</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://indenizacao-erro-medico.repl.co/ebook-premium.html" alt="QR Code para acesso ao E-book" style="max-width: 150px; border-radius: 8px;">
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 MedIndeniz - Todos os direitos reservados</p>
+        <p>Este material tem caráter informativo e não substitui a consulta a um advogado especializado.</p>
+    </footer>
+</body>
+</html>

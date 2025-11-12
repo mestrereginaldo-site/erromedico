@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#302b63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#24243e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#grad)" />
+  
+  <rect x="300" y="200" width="600" height="200" rx="15" ry="15" fill="rgba(255, 255, 255, 0.1)" />
+  
+  <text x="600" y="180" font-family="Arial" font-size="42" font-weight="bold" fill="white" text-anchor="middle">
+    Calculadora de Indenização
+  </text>
+  
+  <text x="600" y="290" font-family="Arial" font-size="70" font-weight="bold" fill="white" text-anchor="middle">
+    ERRO MÉDICO
+  </text>
+  
+  <text x="600" y="350" font-family="Arial" font-size="24" fill="#a29fdb" text-anchor="middle">
+    Descubra quanto você pode receber em apenas 1 minuto
+  </text>
+  
+  <rect x="400" y="400" width="400" height="60" rx="30" ry="30" fill="#7c66dc" />
+  <text x="600" y="442" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+    CALCULAR AGORA
+  </text>
+</svg>

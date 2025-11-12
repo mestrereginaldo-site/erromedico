@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos para Erro Médico</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #2563EB;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2563EB;
+            padding-bottom: 10px;
+        }
+        .resource-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 640px) {
+            .resource-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .resource-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .resource-card h2 {
+            color: #2563EB;
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-left: 4px solid #2563EB;
+            padding-left: 10px;
+        }
+        .resource-card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .resource-card .btn {
+            display: inline-block;
+            background-color: #2563EB;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .resource-card .btn:hover {
+            background-color: #1D4ED8;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recursos para Indenização por Erro Médico</h1>
+    
+    <div class="resource-list">
+        <div class="resource-card">
+            <h2>E-book em HTML</h2>
+            <p>Versão web do nosso guia completo sobre indenização por erro médico, contendo todos os capítulos principais.</p>
+            <a href="/ebook-simple.html" class="btn" target="_blank">Visualizar E-book HTML</a>
+        </div>
+        
+        <div class="resource-card">
+            <h2>E-book em PDF</h2>
+            <p>Versão para download e impressão do guia completo sobre indenização por erro médico.</p>
+            <a href="/indenizacao-erro-medico-guia.pdf" class="btn" target="_blank">Baixar PDF</a>
+        </div>
+        
+        <div class="resource-card">
+            <h2>Versão em Texto</h2>
+            <p>Versão simplificada em texto para fácil cópia e compartilhamento em mensagens, e-mails ou aplicativos.</p>
+            <a href="/ebook-simple.txt" class="btn" target="_blank">Ver Versão Texto</a>
+        </div>
+        
+        <div class="resource-card">
+            <h2>Calculadora Online</h2>
+            <p>Nossa calculadora interativa que estima o valor de indenização com base nos detalhes do seu caso.</p>
+            <a href="/" class="btn">Acessar Calculadora</a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 Indenização por Erro Médico | Todos os direitos reservados</p>
+        <p>Este material tem caráter informativo e não substitui a consulta a um advogado especializado.</p>
+    </div>
+</body>
+</html>
