@@ -25,7 +25,7 @@ export default function ExitPopup({ isOpen, onClose, onSubmit }: ExitPopupProps)
   
   const handleWhatsApp = () => {
     const message = "Olá! Gostaria de baixar o e-book grátis sobre Indenização por Erro Médico.";
-    const whatsappUrl = `https://wa.me/5571981579418?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5571996510966?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     onClose();
   };
