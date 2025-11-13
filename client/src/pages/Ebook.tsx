@@ -93,7 +93,7 @@ export default function Ebook() {
               <i className="fas fa-info-circle mr-2 mt-0.5"></i>
               <span>
                 <strong>Problemas com acesso?</strong><br/>
-                Entre em contato via WhatsApp: (71) 98157-9418
+                Entre em contato via WhatsApp: (71) 99651-0966
               </span>
             </p>
           </div>
