@@ -49,7 +49,7 @@ export default function EbookVendas() {
             Descubra como calcular e obter o valor justo de indenização em casos de erro médico com nosso guia completo desenvolvido por especialistas jurídicos.
           </p>
           <a 
-            href="https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" 
+            href="https://wa.me/5571996510966?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-yellow-400 text-gray-900 font-bold px-8 py-4 rounded-lg text-lg shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300"
@@ -180,7 +180,7 @@ export default function EbookVendas() {
             
             <div className="text-center">
               <a 
-                href="https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" 
+                href="https://wa.me/5571996510966?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-yellow-400 text-gray-900 font-bold px-8 py-4 rounded-lg text-lg shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300"
@@ -293,7 +293,7 @@ export default function EbookVendas() {
             Adquira agora o E-book Premium e tenha acesso a todas as ferramentas e conhecimentos para obter a indenização que você merece.
           </p>
           <a 
-            href="https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" 
+            href="https://wa.me/5571996510966?text=Olá!%20Gostaria%20de%20adquirir%20o%20E-book%20Premium%20sobre%20Indenização%20por%20Erro%20Médico.%20Como%20faço%20para%20comprar?" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-yellow-400 text-gray-900 font-bold px-8 py-4 rounded-lg text-lg shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300"
