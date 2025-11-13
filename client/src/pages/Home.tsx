@@ -1,5 +1,3 @@
-[file name]: Home (1).tsx
-[file content begin]
 import Calculator from "@/components/Calculator";
 import Footer from "@/components/Footer";
 import InformationSection from "@/components/InformationSection";
@@ -183,7 +181,7 @@ export default function Home() {
               className="menu-link"
             >
               <i className="fas fa-book"></i>
-              E-book Premium
+              E&#8209;book Premium
             </a>
             <a href="/casos-reais" className="menu-link">
               <i className="fas fa-balance-scale"></i>
@@ -253,4 +251,3 @@ export default function Home() {
     </>
   );
 }
-[file content end]
