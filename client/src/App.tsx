@@ -14,7 +14,7 @@ import NotFound from "@/pages/not-found";
 function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5571981579418?text=Quero%20minha%20indenização"
+      href="https://wa.me/5571996510966?text=Quero%20minha%20indenização"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-fixo"
