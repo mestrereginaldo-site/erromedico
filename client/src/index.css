@@ -27,6 +27,7 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+  height: 80px; /* Altura fixa para calcular o padding */
 }
 
 .logo {
@@ -1925,4 +1926,36 @@ a:hover {
   .container.mx-auto.px-4.text-center {
     margin-top: 100px !important;
   }
+}
+
+/* CORREÇÃO PARA TELAS GRANDES - MENU SOBREPONDO CONTEÚDO */
+@media (min-width: 769px) {
+  .container.mx-auto.px-4.text-center {
+    margin-top: 120px !important; /* Mais espaço para o header fixo */
+    padding-top: 20px;
+  }
+  
+  .menu-principal {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  /* Garante que o conteúdo principal comece depois do header */
+  main.max-w-3xl.mx-auto.pb-16 {
+    padding-top: 20px;
+  }
+}
+
+/* CORREÇÃO GLOBAL PARA HEADER FIXO */
+body {
+  padding-top: 80px; /* Compensa a altura do header fixo */
+}
+
+.header-fixo {
+  height: 80px; /* Altura fixa consistente */
+}
+
+/* Remove o margin-top inline do React já que usamos padding-top no body */
+.container.mx-auto.px-4.text-center {
+  margin-top: 0 !important;
 }
