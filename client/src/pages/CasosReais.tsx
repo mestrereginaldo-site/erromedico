@@ -7,7 +7,7 @@ export default function CasosReais() {
   
   const handleDocumentClick = (caseTitle: string) => {
     // Abrir o WhatsApp com uma mensagem personalizada sobre o caso
-    window.open(`https://wa.me/5571981579418?text=Olá!%20Gostaria%20de%20ver%20os%20documentos%20do%20caso:%20${encodeURIComponent(caseTitle)}`, "_blank");
+    window.open(`https://wa.me/5571996510966?text=Olá!%20Gostaria%20de%20ver%20os%20documentos%20do%20caso:%20${encodeURIComponent(caseTitle)}`, "_blank");
   };
   
   return (
@@ -295,7 +295,7 @@ export default function CasosReais() {
       
       {/* Botão fixo do WhatsApp com efeito de notificação */}
       <a 
-        href="https://wa.me/5571981579418?text=Olá!%20Vi%20os%20casos%20reais%20de%20sucesso%20e%20gostaria%20de%20avaliar%20meu%20caso." 
+        href="https://wa.me/5571996510966?text=Olá!%20Vi%20os%20casos%20reais%20de%20sucesso%20e%20gostaria%20de%20avaliar%20meu%20caso." 
         target="_blank" 
         rel="noopener noreferrer"
         className="whatsapp-fixo"
