@@ -38,7 +38,7 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
               Nossos especialistas têm <span className="font-bold">97% de sucesso</span> em casos de erro médico. Primeira consulta <span className="font-bold">gratuita</span>.
             </p>
             <a 
-              href="https://wa.me/5571981579418?text=Quero%20consultar%20sobre%20meu%20direito%20a%20indenização%20por%20erro%20médico" 
+              href="https://wa.me/5571996510966?text=Quero%20consultar%20sobre%20meu%20direito%20a%20indenização%20por%20erro%20médico" 
               target="_blank"
               rel="noopener noreferrer"
               className="block py-4 px-6 bg-[#25D366] hover:bg-[#22c55e] rounded-lg font-bold text-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_8px_16px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.3)] flex items-center justify-center border-2 border-white/20"
