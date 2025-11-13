@@ -170,7 +170,7 @@ a:hover {
   margin-top: 1rem;
 }
 
-/* Menu de Navegação Simplificado */
+/* Menu de Navegação Simplificado - CORRIGIDO */
 .menu-principal {
   display: flex;
   justify-content: center;
@@ -179,15 +179,15 @@ a:hover {
   padding: 0.5rem;
   margin: 1rem auto 2rem;
   max-width: 400px;
-  flex-wrap: nowrap; /* Impede quebra para linha seguinte */
+  flex-wrap: nowrap; /* Impede quebra de linha */
   overflow-x: auto; /* Permite scroll horizontal se necessário */
-  gap: 0.5rem; /* Reduz o gap entre os itens */
+  gap: 0.5rem; /* Reduz espaço entre itens */
 }
 
 .menu-link {
   color: white;
   text-decoration: none;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1rem; /* Reduzido para caber melhor */
   border-radius: 6px;
   font-weight: 600;
   display: flex;
@@ -195,17 +195,12 @@ a:hover {
   gap: 0.5rem;
   transition: all 0.3s ease;
   width: auto;
-  min-width: 120px;
+  min-width: auto; /* Remove largura mínima fixa */
   text-align: center;
   justify-content: center;
   letter-spacing: 0.5px;
   white-space: nowrap; /* Impede quebra de texto */
-  flex-shrink: 0; /* Impede que o item encolha */
-}
-
-.menu-link span {
-  display: block;
-  white-space: nowrap;
+  flex-shrink: 0; /* Impede que os itens encolham */
 }
 
 .menu-link i {
@@ -1899,34 +1894,35 @@ a:hover {
   .action-buttons {
     grid-template-columns: 1fr;
   }
-}
-👇 AQUI VOCÊ COLOCA A PARTE 2 QUE EU MANDEI 👇 */
 
-/* SOLUÇÃO PARA MENU MOBILE - ADICIONE ISSO NO FINAL DO ARQUIVO */
-@media (max-width: 768px) {
+  /* CORREÇÕES ESPECÍFICAS PARA O MENU MOBILE */
   .menu-principal {
-    position: relative;
-    z-index: 1002; /* Maior que o header */
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro para contraste */
-    backdrop-filter: blur(10px);
+    max-width: 95%;
     padding: 0.75rem;
-    max-width: 95%; /* Ocupa quase toda a largura */
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1002;
   }
-  
+
   .menu-link {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    min-width: 110px; /* Ligeiramente menor em mobile */
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: auto;
   }
-  
-  /* Garante que o header não cubra o menu */
+
+  .menu-link i {
+    font-size: 1rem;
+  }
+
+  /* Garante que o header não cubra o conteúdo */
   .header-fixo {
     z-index: 1001;
   }
-  
-  /* Ajusta o container principal para dar espaço ao menu */
+
+  /* Ajusta o espaçamento do container principal */
   .container.mx-auto.px-4.text-center {
-    margin-top: 100px !important; /* Mais espaço no topo */
+    margin-top: 100px !important;
   }
 }
