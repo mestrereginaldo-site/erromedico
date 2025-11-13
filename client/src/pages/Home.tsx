@@ -180,7 +180,7 @@ export default function Home() {
             </a>
             <a 
               href="/ebook-premium"
-              className="menu-link no-wrap"
+              className="menu-link"
             >
               <i className="fas fa-book"></i>
               E-book Premium
