@@ -63,7 +63,7 @@ export default function EmailModal({ isOpen, onClose, onSubmit }: EmailModalProp
     const message = `Olá! Gostaria de receber minha análise completa de indenização:\n\n*Nome:* ${userName}\n*Telefone:* ${userPhone}${userEmail ? `\n*Email:* ${userEmail}` : ''}\n*Receber materiais:* ${receiveWhatsapp ? 'Sim' : 'Não'}`;
 
     // Abrir WhatsApp
-    const whatsappUrl = `https://wa.me/5571981579418?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5571996510966?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     // Fechar modal
