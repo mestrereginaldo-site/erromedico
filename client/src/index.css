@@ -1900,3 +1900,33 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+👇 AQUI VOCÊ COLOCA A PARTE 2 QUE EU MANDEI 👇 */
+
+/* SOLUÇÃO PARA MENU MOBILE - ADICIONE ISSO NO FINAL DO ARQUIVO */
+@media (max-width: 768px) {
+  .menu-principal {
+    position: relative;
+    z-index: 1002; /* Maior que o header */
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro para contraste */
+    backdrop-filter: blur(10px);
+    padding: 0.75rem;
+    max-width: 95%; /* Ocupa quase toda a largura */
+  }
+  
+  .menu-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    min-width: 110px; /* Ligeiramente menor em mobile */
+  }
+  
+  /* Garante que o header não cubra o menu */
+  .header-fixo {
+    z-index: 1001;
+  }
+  
+  /* Ajusta o container principal para dar espaço ao menu */
+  .container.mx-auto.px-4.text-center {
+    margin-top: 100px !important; /* Mais espaço no topo */
+  }
+}
