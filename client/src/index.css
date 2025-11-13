@@ -179,6 +179,9 @@ a:hover {
   padding: 0.5rem;
   margin: 1rem auto 2rem;
   max-width: 400px;
+  flex-wrap: nowrap; /* Impede quebra para linha seguinte */
+  overflow-x: auto; /* Permite scroll horizontal se necessário */
+  gap: 0.5rem; /* Reduz o gap entre os itens */
 }
 
 .menu-link {
@@ -196,6 +199,8 @@ a:hover {
   text-align: center;
   justify-content: center;
   letter-spacing: 0.5px;
+  white-space: nowrap; /* Impede quebra de texto */
+  flex-shrink: 0; /* Impede que o item encolha */
 }
 
 .menu-link span {
