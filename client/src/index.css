@@ -65,6 +65,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  padding-top: 80px; /* Compensa a altura do header fixo */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -179,29 +180,24 @@ a:hover {
   border-radius: 8px;
   padding: 0.5rem;
   margin: 1rem auto 2rem;
-  max-width: 400px;
-  flex-wrap: nowrap; /* Impede quebra de linha */
-  overflow-x: auto; /* Permite scroll horizontal se necessário */
-  gap: 0.5rem; /* Reduz espaço entre itens */
+  max-width: 500px; /* Aumentado de 400px para 500px */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.25rem; /* Reduzido para economizar espaço */
 }
 
 .menu-link {
   color: white;
   text-decoration: none;
-  padding: 0.75rem 1rem; /* Reduzido para caber melhor */
+  padding: 0.75rem 0.8rem; /* Ajustado o padding horizontal */
   border-radius: 6px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  width: auto;
-  min-width: auto; /* Remove largura mínima fixa */
-  text-align: center;
-  justify-content: center;
-  letter-spacing: 0.5px;
-  white-space: nowrap; /* Impede quebra de texto */
-  flex-shrink: 0; /* Impede que os itens encolham */
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .menu-link i {
@@ -215,6 +211,18 @@ a:hover {
 .menu-link.active {
   background-color: rgba(59, 130, 246, 0.6);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Para telas maiores, aumentar a max-width e ajustar o gap */
+@media (min-width: 768px) {
+  .menu-principal {
+    max-width: 600px;
+    gap: 0.5rem;
+  }
+
+  .menu-link {
+    padding: 0.75rem 1rem;
+  }
 }
 
 /* Abas de Conteúdo (Mantido para compatibilidade) */
