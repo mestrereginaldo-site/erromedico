@@ -176,13 +176,13 @@ export default function Home() {
               <i className="fas fa-calculator"></i>
               Calculadora
             </a>
-            <a 
+           <a 
               href="/ebook-premium"
               className="menu-link"
             >
-              <i className="fas fa-book"></i>
-              E&#8209;book Premium
-            </a>
+             <i className="fas fa-book"></i>
+              Guia Completo
+              </a>
             <a href="/casos-reais" className="menu-link">
               <i className="fas fa-balance-scale"></i>
               Casos
