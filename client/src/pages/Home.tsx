@@ -21,6 +21,7 @@ export default function Home() {
   const [calculationResult, setCalculationResult] = useState<CalculationResult | null>(null);
   const [showBanner, setShowBanner] = useState(true);
   const [timeLeft, setTimeLeft] = useState("59:59");
+  const [photoError, setPhotoError] = useState(false);
   
   // Para o popup de saída
   useEffect(() => {
@@ -209,7 +210,7 @@ export default function Home() {
               </div>
             </section>
 
-            {/* SEÇÃO SOBRE O AUTOR */}
+            {/* SEÇÃO SOBRE O AUTOR COM FOTO */}
             <section className="sobre-autor bg-gray-800 rounded-2xl p-8 mb-16">
               <div className="container">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
@@ -217,8 +218,27 @@ export default function Home() {
                 </h2>
                 <div className="autor-info flex flex-col md:flex-row items-center gap-8">
                   <div className="autor-foto md:w-1/3 flex justify-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold">
-                      DR
+                    <div className="relative">
+                      {/* SUA FOTO - Tente carregar da pasta assets */}
+                      {!photoError ? (
+                        <img 
+                          src="/assets/dr-reginaldo.jpg" 
+                          alt="Dr. Reginaldo Oliveira - Advogado Especialista"
+                          className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                          onError={() => setPhotoError(true)}
+                        />
+                      ) : (
+                        // Fallback se a foto não carregar
+                        <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold border-4 border-white shadow-lg">
+                          DR
+                        </div>
+                      )}
+                      {/* Selo de verificação */}
+                      <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1 border-2 border-white">
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                   <div className="autor-texto md:w-2/3 text-left">
