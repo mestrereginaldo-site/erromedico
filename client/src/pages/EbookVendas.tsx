@@ -1,6 +1,4 @@
-
-preciso que vc me diga neste cdigo a linha onde devo colocar a miinha foto de dr. reginaldo oliveira no local das iniciais. import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from 'react';
 export default function EbookPremium() {
   const [timeLeft, setTimeLeft] = useState(45 * 60); // 45 minutos em segundos
   const [copiesLeft, setCopiesLeft] = useState(8);
