@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+preciso que vc me diga neste cdigo a linha onde devo colocar a miinha foto de dr. reginaldo oliveira no local das iniciais. import React, { useState, useEffect } from 'react';
 
 export default function EbookPremium() {
   const [timeLeft, setTimeLeft] = useState(45 * 60); // 45 minutos em segundos
@@ -263,18 +264,14 @@ export default function EbookPremium() {
         </div>
       </section>
 
-      {/* Seção do Autor - COM SUA FOTO INTEGRADA */}
+      {/* Seção do Autor */}
       <section className="py-20 bg-gradient-to-b from-[#1E293B] to-[#0F172A]">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold border-4 border-white shadow-lg overflow-hidden">
-                  <img 
-                    src="/dr-reginaldo.jpg" 
-                    alt="Dr. Reginaldo Oliveira"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold border-4 border-white shadow-lg">
+                  DR
                 </div>
               </div>
               <div>
