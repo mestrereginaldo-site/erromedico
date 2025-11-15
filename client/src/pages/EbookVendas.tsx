@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function EbookPremium() {
   const [timeLeft, setTimeLeft] = useState(45 * 60); // 45 minutos em segundos
   const [copiesLeft, setCopiesLeft] = useState(8);
+  const [photoError, setPhotoError] = useState(false);
 
   // Contador regressivo
   useEffect(() => {
@@ -263,22 +264,25 @@ export default function EbookPremium() {
         </div>
       </section>
 
-      {/* Seção do Autor - COM FOTO CORRIGIDA */}
+      {/* Seção do Autor - COM A MESMA ESTRUTURA QUE FUNCIONA NA OUTRA PÁGINA */}
       <section className="py-20 bg-gradient-to-b from-[#1E293B] to-[#0F172A]">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
-                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                  {/* SUA FOTO - Tente carregar da pasta assets */}
-                  {!photoError ? (
+                {/* SUA FOTO - Exatamente como na outra página que funciona */}
+                {!photoError ? (
                   <img 
-                  src="/assets/dr-reginaldo.jpg" 
-                  alt="Dr. Reginaldo Oliveira - Advogado Especialista"
-                  className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
-                  onError={() => setPhotoError(true)}
+                    src="/assets/dr-reginaldo.jpg" 
+                    alt="Dr. Reginaldo Oliveira - Advogado Especialista"
+                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                    onError={() => setPhotoError(true)}
                   />
-                </div>
+                ) : (
+                  <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold border-4 border-white shadow-lg">
+                    DR
+                  </div>
+                )}
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4">
