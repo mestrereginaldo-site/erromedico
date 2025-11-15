@@ -271,12 +271,12 @@ export default function EbookPremium() {
               <div className="flex-shrink-0">
                 <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   {/* SUA FOTO - Tente carregar da pasta assets */}
-                      {!photoError ? (
-                        <img 
-                          src="/assets/dr-reginaldo.jpg" 
-                          alt="Dr. Reginaldo Oliveira - Advogado Especialista"
-                          className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
-                          onError={() => setPhotoError(true)}
+                  {!photoError ? (
+                  <img 
+                  src="/assets/dr-reginaldo.jpg" 
+                  alt="Dr. Reginaldo Oliveira - Advogado Especialista"
+                  className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                  onError={() => setPhotoError(true)}
                   />
                 </div>
               </div>
