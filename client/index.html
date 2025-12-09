@@ -3,6 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <!-- =================================================== -->
+<!-- GOOGLE ANALYTICS GA4 - medindeniz.com.br -->
+<!-- =================================================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0H7BBQ3F6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  // Configuração principal do GA4
+  gtag('config', 'G-H0H7BBQ3F6', {
+    'page_title': document.title,
+    'page_location': window.location.href,
+    'page_path': window.location.pathname
+  });
+  
+  // Rastreamento avançado para site jurídico
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. CLIQUE EM WHATSAPP/LIGAÇÃO (para advogados)
+    document.querySelectorAll('a[href*="whatsapp"], a[href*="wa.me"], a[href*="tel:"]').forEach(link => {
+      link.addEventListener('click', function() {
+        const tipo = this.href.includes('whatsapp') ? 'whatsapp' : 'telefone';
+        gtag('event', 'contato_clique', {
+          'event_category': 'conversao',
+          'event_label': 'Clique ' + tipo + ' - ' + this.textContent.substring(0, 30),
+          'method': tipo
+        });
+        console.log('GA4: Clique em ' + tipo + ' rastreado');
+      });
+    });
+    
+    // 2. FORMULÁRIOS DE CONTATO (para orçamentos)
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        // Espera um pouco para garantir que o envio foi iniciado
+        setTimeout(() => {
+          gtag('event', 'formulario_enviado', {
+            'event_category': 'lead',
+            'event_label': 'Formulário: ' + (this.id || 'sem-id'),
+            'form_name': this.id || 'formulario'
+          });
+          console.log('GA4: Formulário enviado rastreado');
+        }, 500);
+      });
+    });
+    
+    // 3. DOWNLOADS DE MATERIAIS (e-books, modelos, etc.)
+    document.querySelectorAll('a[href*=".pdf"], a[href*=".doc"], a[href*="download"]').forEach(link => {
+      link.addEventListener('click', function() {
+        const arquivo = this.href.split('/').pop() || 'arquivo';
+        gtag('event', 'download_material', {
+          'event_category': 'material',
+          'event_label': 'Download: ' + arquivo,
+          'file_name': arquivo
+        });
+        console.log('GA4: Download rastreado: ' + arquivo);
+      });
+    });
+    
+    // 4. CLIQUE EM SERVIÇOS ESPECÍFICOS
+    document.querySelectorAll('a[href*="servico"], a[href*="area"], .servico-item, .area-atuacao').forEach(link => {
+      link.addEventListener('click', function() {
+        const servico = this.textContent.trim().substring(0, 40);
+        gtag('event', 'servico_clique', {
+          'event_category': 'navegacao',
+          'event_label': 'Serviço: ' + servico,
+          'service_name': servico
+        });
+        console.log('GA4: Clique em serviço rastreado: ' + servico);
+      });
+    });
+    
+    // 5. CLIQUE EM "AGENDE CONSULTA" ou similares
+    document.querySelectorAll('.btn-agendar, .btn-consulta, .btn-orcamento, .cta-button').forEach(button => {
+      button.addEventListener('click', function() {
+        gtag('event', 'agendamento_clique', {
+          'event_category': 'conversao',
+          'event_label': 'Agendamento: ' + this.textContent.trim().substring(0, 30)
+        });
+        console.log('GA4: Clique em agendamento rastreado');
+      });
+    });
+    
+    // 6. ROLAGEM PROFUNDA (engajamento)
+    let scrollRastreado = false;
+    window.addEventListener('scroll', function() {
+      if (!scrollRastreado && window.scrollY > window.innerHeight * 2) {
+        gtag('event', 'rolagem_profunda', {
+          'event_category': 'engajamento',
+          'event_label': 'Rolagem > 2x altura da tela'
+        });
+        scrollRastreado = true;
+        console.log('GA4: Rolagem profunda rastreada');
+      }
+    });
+    
+    // 7. TEMPO NA PÁGINA (aprox.)
+    setTimeout(() => {
+      gtag('event', 'tempo_pagina_30s', {
+        'event_category': 'engajamento',
+        'event_label': '30 segundos na página'
+      });
+      console.log('GA4: 30 segundos na página');
+    }, 30000);
+    
+    // 8. SAÍDA DA PÁGINA (tentativa de fechar/abandonar)
+    window.addEventListener('beforeunload', function() {
+      gtag('event', 'tentativa_saida', {
+        'event_category': 'comportamento',
+        'event_label': 'Usuário tentou sair'
+      });
+    });
+    
+  });
+  
+  // 9. ERROS NO SITE (para monitoramento)
+  window.addEventListener('error', function(e) {
+    gtag('event', 'erro_javascript', {
+      'event_category': 'erro',
+      'event_label': e.message.substring(0, 100),
+      'error_url': window.location.href
+    });
+  });
+  
+</script>
+<!-- =================================================== -->
     <title>MedIndeniz - Calculadora de Indenização por Erro Médico</title>
     <meta name="description" content="Calcule o valor estimado da sua indenização por erro médico em apenas 1 minuto. Baseado em jurisprudência atual e valores médios de 2024.">
     <meta name="keywords" content="erro médico, processo hospital, indenização saúde, advogado erro médico, como processar hospital">
