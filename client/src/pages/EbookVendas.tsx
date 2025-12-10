@@ -115,7 +115,7 @@ export default function EbookPremium() {
             </div>
             
             <a 
-              href="https://wa.me/5571996510966?text=Olá!%20Gostaria%20de%20adquirir%20o%20GUIA%20COMPLETO%20sobre%20Indenização%20por%20Erro%20Médico%20com%2060%25%20de%20desconto.%20Como%20faço%20para%20comprar?" 
+              href="https://wa.me/5571986482241?text=Olá!%20Gostaria%20de%20adquirir%20o%20GUIA%20COMPLETO%20sobre%20Indenização%20por%20Erro%20Médico%20com%2060%25%20de%20desconto.%20Como%20faço%20para%20comprar?" 
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-8 py-4 rounded-lg text-lg shadow-2xl hover:transform hover:-translate-y-1 transition-all duration-300 text-center"
@@ -371,7 +371,7 @@ export default function EbookPremium() {
             
             <div className="text-center">
               <a 
-                href="https://wa.me/5571996510966?text=Olá!%20Gostaria%20de%20adquirir%20o%20GUIA%20COMPLETO%20E%20INTERATIVO%20sobre%20Indenização%20por%20Erro%20Médico%20com%2060%25%20de%20desconto.%20Como%20faço%20para%20comprar?" 
+                href="https://wa.me/5571986482241?text=Olá!%20Gostaria%20de%20adquirir%20o%20GUIA%20COMPLETO%20E%20INTERATIVO%20sobre%20Indenização%20por%20Erro%20Médico%20com%2060%25%20de%20desconto.%20Como%20faço%20para%20comprar?" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-yellow-400 text-gray-900 font-bold px-8 py-4 rounded-lg text-lg shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300 w-full justify-center"
@@ -453,7 +453,7 @@ export default function EbookPremium() {
             </div>
             
             <a 
-              href="https://wa.me/5571996510966?text=Olá!%20Quero%20garantir%20o%20GUIA%20COMPLETO%20E%20INTERATIVO%20com%2060%25%20de%20desconto%20antes%20que%20acabe!%20Como%20faço%20para%20comprar?" 
+              href="https://wa.me/5571986482241?text=Olá!%20Quero%20garantir%20o%20GUIA%20COMPLETO%20E%20INTERATIVO%20com%2060%25%20de%20desconto%20antes%20que%20acabe!%20Como%20faço%20para%20comprar?" 
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-8 py-4 rounded-lg text-lg shadow-2xl hover:transform hover:-translate-y-1 transition-all duration-300 text-center animate-bounce"
@@ -482,7 +482,7 @@ export default function EbookPremium() {
 
       {/* Botão do WhatsApp Flutuante */}
       <a 
-        href="https://wa.me/5571996510966?text=Olá!%20Tenho%20dúvidas%20sobre%20o%20Guia%20Completo%20e%20Interativo%20de%20Indenização%20por%20Erro%20Médico.%20Pode%20me%20ajudar?" 
+        href="https://wa.me/5571986482241?text=Olá!%20Tenho%20dúvidas%20sobre%20o%20Guia%20Completo%20e%20Interativo%20de%20Indenização%20por%20Erro%20Médico.%20Pode%20me%20ajudar?" 
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-50 hover:bg-green-600 transition-all duration-300 animate-pulse"
