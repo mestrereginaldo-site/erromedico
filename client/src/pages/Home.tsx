@@ -108,7 +108,7 @@ export default function Home() {
 
       const message = `Olá! Gostaria de receber minha análise completa:\n\n*Nome:* ${formData.userName}\n*Email:* ${formData.userEmail}\n*Telefone:* ${formData.userPhone}\n*Receber WhatsApp:* ${formData.receiveWhatsapp ? 'Sim' : 'Não'}\n\n*Resultado do Cálculo:*\nDano Moral: R$ ${calculationResult.moralDamage.toFixed(2)}\nDano Material: R$ ${calculationResult.materialDamage.toFixed(2)}\nPensão: R$ ${calculationResult.pension.toFixed(2)}\n*Total: R$ ${calculationResult.total.toFixed(2)}*`;
 
-      const whatsappUrl = `https://wa.me/5571996510966?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/5571986482241?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       
       setIsEmailModalOpen(false);
@@ -116,7 +116,7 @@ export default function Home() {
       
     } catch (error) {
       console.error("Error:", error);
-      const whatsappUrl = `https://wa.me/5571996510966?text=Olá! Gostaria de receber minha análise de indenização.`;
+      const whatsappUrl = `https://wa.me/5571986482241?text=Olá! Gostaria de receber minha análise de indenização.`;
       window.open(whatsappUrl, '_blank');
     }
   };
@@ -124,7 +124,7 @@ export default function Home() {
   const handleSubmitEbook = async (email: string) => {
     try {
       const message = `Olá! Gostaria de baixar o e-book grátis sobre Indenização por Erro Médico.\n\n*Email:* ${email}`;
-      const whatsappUrl = `https://wa.me/5571996510966?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/5571986482241?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       
       setIsExitPopupOpen(false);
@@ -132,7 +132,7 @@ export default function Home() {
       
     } catch (error) {
       console.error("Error:", error);
-      const whatsappUrl = `https://wa.me/5571996510966?text=Olá! Gostaria de baixar o e-book grátis.`;
+      const whatsappUrl = `https://wa.me/5571986482241?text=Olá! Gostaria de baixar o e-book grátis.`;
       window.open(whatsappUrl, '_blank');
     }
   };
@@ -309,7 +309,7 @@ export default function Home() {
       
       {/* Botão fixo do WhatsApp */}
       <a 
-        href="https://wa.me/5571996510966?text=Olá!%20Tenho%20interesse%20em%20entender%20meus%20direitos%20sobre%20erro%20médico." 
+        href="https://wa.me/5571986482241?text=Olá!%20Tenho%20interesse%20em%20entender%20meus%20direitos%20sobre%20erro%20médico." 
         target="_blank" 
         rel="noopener noreferrer"
         className="whatsapp-fixo"
